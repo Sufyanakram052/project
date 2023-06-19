@@ -62,8 +62,8 @@ router.post('/creates', (req, res) => {
         formData.state,
         formData.zip,
         formData.country,
-        formData.contactByEmail,
-        formData.contactByPhone
+        formData.contactByEmail ? 1 : 0,
+        formData.contactByPhone ? 1 : 0
       ],function (err) {
           if (err) {
             console.error(err.message);
