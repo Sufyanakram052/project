@@ -21,7 +21,7 @@ table.table
     each contact in rows
       tr
         td 
-          a(href=`/:${contact.ID}`) #{contact.FirstName} #{contact.LastName}
+          a(href=`/${contact.ID}`) #{contact.FirstName} #{contact.LastName}
         td #{contact.PhoneNumber}
         td #{contact.EmailAddress}
         td #{contact.State} #{contact.City} #{contact.State} #{contact.Zip} #{contact.Country} 

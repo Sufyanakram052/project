@@ -24,7 +24,7 @@ router.get('/create', (req,res) => {
 //Contact Info
 router.get('/:id', (req, res) => {
   const formData = req.params.id;
-  const sql = `SELECT * FROM Contacts where id = ${id}`;
+  const sql = `SELECT * FROM Contacts where id = ${formData}`;
   db.all(sql, [], (err, rows) => {
     if (err) {
       return res.status(500).json({ message: err.message });
