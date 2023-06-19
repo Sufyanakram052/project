@@ -1,0 +1,43 @@
+html
+  head
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
+    title= title
+  body
+    a(href="/signin") Sign in
+    
+    h1 Create Contact
+
+    form(action="/creates" method="POST")
+        fieldset 
+            legend Basic Info
+            label First Name: 
+            input(type="text" id="firstName" name="firstName" value="firstName") 
+            label Last Name: 
+            input(type="text" id="lastName" name="lastName" value="lastName")
+            label Phone: 
+            input(type="text" id="phone" name="phone" value="phone")
+            label Email: 
+            input(type="email" id="email" name="email" value="email")
+        fieldset 
+            legend Address 
+            label Street: 
+            input(type="text" id="street" name="street" value="street") 
+            label City: 
+            input(type="text" id="city" name="city" value="city")
+            label State: 
+            input(type="text" id="state" name="state" value="state")
+            label Zip: 
+            input(type="email" id="zip" name="zip" value="zip")
+            label Country: 
+            input(type="email" id="country" name="country" value="country")
+        fieldset 
+            legend Contact Preferences 
+            label 
+            input(type="checkbox" id="contactByPhone" name="contactByPhone" value="contactByPhone")
+            | Contact by phone
+            br
+            label 
+            input(type="checkbox" id="contactByEmail" name="contactByEmail" value="contactByEmail")
+            | Contact by email
+        input(type="submit" value="Add")
+        a(href="/") Cancel

@@ -1,0 +1,18 @@
+html
+  head
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
+    title= title
+  body 
+    h1 Sign In
+
+    form(action="/submitContactForm" method="POST")
+        label Username: 
+        input(type="text" id="firstName" name="firstName") 
+        label Password: 
+        input(type="password" id="password" name="password")
+        button(type="button") Sign in
+        a(href="/") Nevermind
+        p Don't have an account yet? 
+          a(href="/signup") Sign up here!
+
+        
