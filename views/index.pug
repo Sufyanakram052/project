@@ -18,41 +18,21 @@ table.table
       th Address 
       th Contact
   tbody
-    tr
-      td 
-        a(href="/contactinfo") Create a new contact
-      td 583.697.1734 x0810
-      td Aryanna.OKeefe@gmail.com
-      td 33477 Bergstrom Field Malindafurt, South Carolina 42255 United States
-      td 
-        label(for="") 
-          input(type="checkbox" disabled) 
-          | Phone
-        br
-        label(for="") 
-          input(type="checkbox" disabled) 
-          | Email 
-        br
-        label(for="") 
-          input(type="checkbox" disabled) 
-          | Phone  
-    tr
-      td 
-        a(href="#") Create a new contact
-      td 583.697.1734 x0810
-      td Aryanna.OKeefe@gmail.com
-      td 33477 Bergstrom Field Malindafurt, South Carolina 42255 United States
-      td 
-        label(for="") 
-          input(type="checkbox" disabled) 
-          | Phone
-        br
-        label(for="") 
-          input(type="checkbox" disabled) 
-          | Email 
-        br
-        label(for="") 
-          input(type="checkbox" disabled) 
-          | Phone   
+    each contact in rows
+      tr
+        td 
+          a(href=`/:${contact.ID}`) #{contact.FirstName} #{contact.LastName}
+        td #{contact.PhoneNumber}
+        td #{contact.EmailAddress}
+        td #{contact.State} #{contact.City} #{contact.State} #{contact.Zip} #{contact.Country} 
+        td 
+          label
+            input(type="checkbox" disabled checked=contact.Contact_By_Phone) 
+            | Phone
+          br
+          label
+            input(type="checkbox" disabled checked=contact.Contact_By_Email) 
+            | Email 
+      
     
     

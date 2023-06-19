@@ -22,16 +22,16 @@ router.get('/create', (req,res) => {
 });
 
 //Contact Info
-router.get('/contactinfo', (req, res) => {
-  // const formData = req.params.id;
-  // const sql = `SELECT * FROM Contacts where id = ${id}`;
-  // db.all(sql, [], (err, rows) => {
-  //   if (err) {
-  //     return res.status(500).json({ message: err.message });
-  //   }
-  //   res.render(path.join(__dirname, '../views/contactinfo.pug') ,  {title: 'P2 Contacts', rows})
-  // });
-  res.render(path.join(__dirname, '../views/contactinfo.pug') ,  {title: 'P2 Contacts'})
+router.get('/:id', (req, res) => {
+  const formData = req.params.id;
+  const sql = `SELECT * FROM Contacts where id = ${id}`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ message: err.message });
+    }
+    res.render(path.join(__dirname, '../views/contactinfo.pug') ,  {title: 'P2 Contacts', rows})
+  });
+  //res.render(path.join(__dirname, '../views/contactinfo.pug') ,  {title: 'P2 Contacts'})
 
 });
 
@@ -63,19 +63,13 @@ router.post('/creates', (req, res) => {
         formData.zip,
         formData.country,
         formData.contactByEmail ? 1 : 0,
-        formData.contactByPhone ? 1 : 0
+        formData.contactByPhone? 1 : 0
       ],function (err) {
           if (err) {
             console.error(err.message);
             res.status(500).send('Error inserting data into database.');
           } else {
-            const sql = 'SELECT * FROM Contacts';
-            db.all(sql, [], (err, rows) => {
-              if (err) {
-                return res.status(500).json({ message: err.message });
-              }
-              res.render(path.join(__dirname, '../views/index.pug') ,  {title: 'P2 Contacts', rows})
-            });
+            res.redirect('/');
           }
       });
     
