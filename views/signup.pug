@@ -3,9 +3,9 @@ html
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
     title= title
   body 
-    h1 Sign In
+    h1 Sign up
 
-    form(action="/submitContactForm" method="POST")
+    form(action="/signups" method="POST")
         label First Name: 
         input(type="text" id="firstName" name="firstName") 
         label Last Name: 
@@ -15,9 +15,9 @@ html
         input(type="text" id="username" name="username")
         label Password: 
         input(type="password" id="password" name="password")
-        label Confirm Password: 
-        input(type="password" id="confirmPassword" name="confirmPassword")
-        button(type="button") Sign up
+        //- label Confirm Password: 
+        //- input(type="confirmpassword" id="confirmPassword" name="confirmPassword")
+        input(type="submit" value="Add")
         a(href="/") Nevermind
         p Already have an account? 
           a(href="/signin") Sign in here!

@@ -3,6 +3,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
+//session
 
 //Tables
 const createTablesIfNotExists = require('./tables/tables.js')
@@ -14,17 +17,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+app.use(cookieParser());
 //middleware
 const customMiddleware = (req, res, next) => {
     // Perform some middleware logic here
     console.log('Custom middleware executed');
-    next(); // Call next() to pass control to the next middleware or route handler
+    next(); // Call next()  to pass control to the next middleware or route handler
 };
 // Middleware
 app.use(customMiddleware);
-
-app.use(require('./contacts/contact.js'));
+app.get('/signout', (req, res) => {
+    // Clear the 'username' and 'password' cookies
+    res.clearCookie('username');
+    res.clearCookie('password');
+  
+    // Redirect to the sign-in page or send a success response
+    res.redirect('/');
+  });
 app.use(require('./user/user.js'));
+app.use(require('./contacts/contact.js'));
+
 
 
 //Database Path

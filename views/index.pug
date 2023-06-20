@@ -3,8 +3,8 @@ html
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
     title= title
   body
-    a(href="/signin") Sign in
-    
+    a(href="/signout") #{username ? username + ', ' + password + ' ' +'Sign out' : ''}
+    a(href="/signin" style= username ? 'display: none;' : '') Sign in
     h1 Contact List
 
     a(href="/create" ) Create a new contact
@@ -27,11 +27,11 @@ table.table
         td #{contact.Street}, #{contact.City}, #{contact.Zip}, #{contact.State}, #{contact.Country} 
         td 
           label
-            input(type="checkbox" disabled checked=contact.Contact_By_Phone) 
+            input(type="checkbox" disabled checked = contact.Contact_By_Phone == 1 ? true : false) 
             | Phone
           br
           label
-            input(type="checkbox" disabled checked=contact.Contact_By_Email) 
+            input(type="checkbox" disabled checked = contact.Contact_By_Email == 1 ? true : false) 
             | Email 
       
     

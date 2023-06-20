@@ -5,14 +5,14 @@ html
   body 
     h1 Sign In
 
-    form(action="/submitContactForm" method="POST")
+    form(action="/login" method="POST" id="loginForm")
         label Username: 
-        input(type="text" id="firstName" name="firstName") 
+        input(type="text" id="username" name="username") 
         label Password: 
         input(type="password" id="password" name="password")
-        button(type="button") Sign in
+        input(type="submit" value="Sign in")
         a(href="/") Nevermind
         p Don't have an account yet? 
           a(href="/signup") Sign up here!
-
         
+      

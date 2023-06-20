@@ -1,0 +1,17 @@
+html
+  head
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
+    title= title
+  body
+    a(href="/signout") #{username ? username + ', ' + password + ' ' +'Sign out' : ''}
+    a(href="/signin" style= username ? 'display: none;' : '') Sign in
+
+    h1 Delete Contact
+    form(action="/deletes" method="POST")
+        each contact in rows
+            input(type='hidden' name='id' value=contact.ID)
+            p #{contact.FirstName} #{contact.LastName}
+            p Are you sure you want to delete this contact?
+            input(type="submit" value="Yes!")
+            a(href="/") Nevermind
+

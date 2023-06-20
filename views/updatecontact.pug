@@ -3,7 +3,10 @@ html
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
     title= title
   body
-    a(href="/signin") Sign in
+    a(href="/signout") #{username ? username + ', ' + password + ' ' +' Sign out' : ''}
+    a(href="/signin" style= username ? 'display: none;' : '') Sign in
+
+
     
     h1 Create Contact
 
@@ -35,11 +38,11 @@ html
             fieldset 
                 legend Contact Preferences 
                 label 
-                input(type="checkbox" id="contactByPhone" name="contactByPhone" checked=`${contact.Contact_By_Phone}`)
+                input(type="checkbox" id="contactByPhone" name="contactByPhone" checked = contact.Contact_By_Phone == 1 ? true : false)
                 | Contact by phone
                 br
                 label 
-                input(type="checkbox" id="contactByEmail" name="contactByEmail" checked=`${contact.Contact_By_Email}`)
+                input(type="checkbox" id="contactByEmail" name="contactByEmail" checked = contact.Contact_By_Email == 1 ? true : false)
                 | Contact by email
             input(type="submit" value="Update")
-            a(href=`/${contact.ID}/delete`) Cancel
+            a(href=`/`) Cancel
