@@ -24,7 +24,7 @@ table.table
           a(href=`/${contact.ID}`) #{contact.FirstName} #{contact.LastName}
         td #{contact.PhoneNumber}
         td #{contact.EmailAddress}
-        td #{contact.State} #{contact.City} #{contact.State} #{contact.Zip} #{contact.Country} 
+        td #{contact.Street}, #{contact.City}, #{contact.Zip}, #{contact.State}, #{contact.Country} 
         td 
           label
             input(type="checkbox" disabled checked=contact.Contact_By_Phone) 

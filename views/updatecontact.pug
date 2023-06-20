@@ -1,0 +1,45 @@
+html
+  head
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css")
+    title= title
+  body
+    a(href="/signin") Sign in
+    
+    h1 Create Contact
+
+    form(action="/edit" method="POST")
+        each contact in rows
+            fieldset 
+                legend Basic Info
+                input(type='text' id='ID' name='ID' value=`${contact.ID}` style="display: none;")
+                label First Name: 
+                input(type="text" id="firstName" name="firstName" value=`${contact.FirstName}`) 
+                label Last Name: 
+                input(type="text" id="lastName" name="lastName" value=`${contact.LastName}`)
+                label Phone: 
+                input(type="text" id="phoneNumber" name="phoneNumber" value=`${contact.PhoneNumber}`)
+                label Email: 
+                input(type="email" id="emailAddress" name="emailAddress" value=`${contact.EmailAddress}`)
+            fieldset 
+                legend Address 
+                label Street: 
+                input(type="text" id="street" name="street" value=`${contact.Street}`) 
+                label City: 
+                input(type="text" id="city" name="city" value=`${contact.City}`)
+                label State: 
+                input(type="text" id="state" name="state" value=`${contact.Zip}`)
+                label Zip: 
+                input(type="text" id="zip" name="zip" value=`${contact.State}`)
+                label Country: 
+                input(type="text" id="country" name="country" value=`${contact.Country}`)
+            fieldset 
+                legend Contact Preferences 
+                label 
+                input(type="checkbox" id="contactByPhone" name="contactByPhone" checked=`${contact.Contact_By_Phone}`)
+                | Contact by phone
+                br
+                label 
+                input(type="checkbox" id="contactByEmail" name="contactByEmail" checked=`${contact.Contact_By_Email}`)
+                | Contact by email
+            input(type="submit" value="Update")
+            a(href=`/${contact.ID}/delete`) Cancel

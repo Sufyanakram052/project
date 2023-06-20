@@ -6,29 +6,30 @@ html
     a(href="/signin") Sign in
     
     h1 Contact Info
-    h2 Name
-    hr
-    a(href="/") Back To List 
-    p 
-      b Phone number: 
-      | 583.697.1734 x0810
-    p 
-      i May be contacted by phone or text
-    hr
-    p 
-      b Email Address: 
-      | Aryanna.OKeefe@gmail.com
-    p 
-      i May be contacted by email
-    hr
-    p 
-      b Address: 
-      | 33477 Bergstrom Fields
-      | Malindafurt, South Carolina 42255
-      | United States
-    hr
-    a(href="#") Edit Contact
-    br
-    a(href="#") Delete Contact 
+      each contact in rows
+        h2 #{contact.FirstName} #{contact.LastName}
+        hr
+        a(href="/") Back To List 
+        p 
+          b Phone number: 
+          | #{contact.PhoneNumber}
+        p 
+          i May be contacted by phone or text
+        hr
+        p 
+          b Email Address: 
+          | #{contact.EmailAddress}
+        p 
+          i May be contacted by email
+        hr
+        p 
+          b Address: 
+          | #{contact.Street}, 
+          | #{contact.City}, #{contact.Zip}, #{contact.State}, 
+          | #{contact.Country} 
+        hr
+        a(href=`/${contact.ID}/edit`) Edit Contact
+        br
+        a(href="#") Delete Contact 
     
 
